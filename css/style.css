@@ -1,0 +1,9 @@
+#pnl_info span {
+	margin-left:10px;
+}
+
+.control {
+	display:inline-block;
+	margin-left:10px;
+	cursor:pointer;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="css/html5reset.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>Small Gods</title>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script src="js/excanvas.compiled.js"></script>
+<![endif]-->
+<script type="text/javascript" src="js/functions.js"></script>
+<script type="text/javascript" src="js/smallgods.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		initSmallGods(null);
+		
+		if (!dCtl) {
+			$(".debug").css("display", "none");
+		}
+	
+		$('#ctlPause').click(function(){
+			kFrameRate = 0;
+			
+			updateInterval();
+		});
+		$('#ctlSpdDecrease').click(function(){
+			if (kFrameRate > 10) { kFrameRate -= 10; }
+			
+			updateInterval();
+		});
+		$('#ctlSpdMedium').click(function(){
+			kFrameRate = 50;
+			
+			updateInterval();
+		});
+		$('#ctlSpdIncrease').click(function(){
+			kFrameRate += 10;
+			
+			updateInterval();
+		});
+		
+	});
+</script>
+</head>
+<body style="background-color:#666; font:bold 16px sans-serif;">
+	<div id="pnl_info" style="width:300px; padding:10px; display:inline-block; text-align:right;"></div>
+	<div id="smallgods" style="background-color:#FFF; width:500px; height:500px; margin:10px 50px; display:inline-block;"></div>
+	<div id="controls" style="width:500px; height:50px; margin:10px 0 10px 374px; display:block;">
+		<div class="control debug" id="ctlPause">#</div>
+		<div class="control debug" id="ctlSpdDecrease">-</div>
+		<div class="control debug" id="ctlSpdMedium">></div>
+		<div class="control debug" id="ctlSpdIncrease">+</div>
+	</div>
+</body>
+</html>
