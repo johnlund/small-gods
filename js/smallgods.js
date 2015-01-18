@@ -166,11 +166,6 @@ Tile.prototype.update = function()
 		var y = yNum-1;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
-	else if (xNum == 0 && yNum == 0) {
-		var x = gGrid.numTiles;
-		var y = gGrid.numTiles;
-		this.surEnergy += gGrid.tiles[x][y].curEnergy;
-	}
 	else if (xNum == 0 && yNum > 0) {
 		var x = gGrid.numTiles;
 		var y = yNum-1;
@@ -178,6 +173,11 @@ Tile.prototype.update = function()
 	}
 	else if (xNum > 0 && yNum == 0) {
 		var x = xNum-1;
+		var y = gGrid.numTiles;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
+	}
+	else if (xNum == 0 && yNum == 0) {
+		var x = gGrid.numTiles;
 		var y = gGrid.numTiles;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
