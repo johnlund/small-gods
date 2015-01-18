@@ -167,18 +167,18 @@ Tile.prototype.update = function()
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	else if (xNum == 0 && yNum == 0) {
-		var x = grid.numTiles;
-		var y = grid.numTiles;
+		var x = gGrid.numTiles;
+		var y = gGrid.numTiles;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	else if (xNum == 0 && yNum > 0) {
-		var x = grid.numTiles;
+		var x = gGrid.numTiles;
 		var y = yNum-1;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	else if (xNum > 0 && yNum == 0) {
 		var x = xNum-1;
-		var y = grid.numTiles;
+		var y = gGrid.numTiles;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	//1
@@ -189,28 +189,28 @@ Tile.prototype.update = function()
 	}
 	else if (yNum == 0) {
 		var x = xNum;
-		var y = grid.numTiles;
+		var y = gGrid.numTiles;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	//2
-	if ((xNum < (grid.numTiles - 1)) && yNum > 0) {
+	if ((xNum < (gGrid.numTiles - 1)) && yNum > 0) {
 		var x = xNum+1;
 		var y = yNum-1;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
-	else if ((xNum < (grid.numTiles - 1)) && yNum == 0) {
+	else if ((xNum < (gGrid.numTiles - 1)) && yNum == 0) {
 		var x = xNum+1;
-		var y = grid.numTiles;
+		var y = gGrid.numTiles;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
-	else if (xNum == grid.numTiles && yNum > 0) {
+	else if (xNum == gGrid.numTiles && yNum > 0) {
 		var x = 0;
 		var y = yNum-1;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
-	else if (xNum == grid.numTiles && yNum == 0) {
+	else if (xNum == gGrid.numTiles && yNum == 0) {
 		var x = 0;
-		var y = grid.numTiles;
+		var y = gGrid.numTiles;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	//3
@@ -220,70 +220,70 @@ Tile.prototype.update = function()
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	else if (xNum == 0) {
-		var x = grid.numTiles;
+		var x = gGrid.numTiles;
 		var y = yNum;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	//4
-	if (xNum < (grid.numTiles - 1)) {
+	if (xNum < (gGrid.numTiles - 1)) {
 		var x = xNum+1;
 		var y = yNum;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
-	else if (xNum == grid.numTiles) {
+	else if (xNum == gGrid.numTiles) {
 		var x = 0;
 		var y = yNum;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	//5
-	if (xNum > 0 && (yNum < (grid.numTiles - 1))) {
+	if (xNum > 0 && (yNum < (gGrid.numTiles - 1))) {
 		var x = xNum-1;
 		var y = yNum+1;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
-	else if (xNum == 0 && (yNum < (grid.numTiles - 1))) {
-		var x = grid.numTiles;
+	else if (xNum == 0 && (yNum < (gGrid.numTiles - 1))) {
+		var x = gGrid.numTiles;
 		var y = yNum+1;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
-	else if (xNum > 0 && yNum == grid.numTiles) {
+	else if (xNum > 0 && yNum == gGrid.numTiles) {
 		var x = xNum-1;
 		var y = 0;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
-	else if (xNum == 0 && yNum == grid.numTiles) {
-		var x = grid.numTiles;
+	else if (xNum == 0 && yNum == gGrid.numTiles) {
+		var x = gGrid.numTiles;
 		var y = 0;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	//6
-	if (yNum < (grid.numTiles - 1)) {
+	if (yNum < (gGrid.numTiles - 1)) {
 		var x = xNum;
 		var y = yNum+1;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
-	if (yNum == grid.numTiles) {
+	if (yNum == gGrid.numTiles) {
 		var x = xNum;
 		var y = 0;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	//7
-	if ((xNum < (grid.numTiles - 1)) && (yNum < (grid.numTiles - 1))) {
+	if ((xNum < (gGrid.numTiles - 1)) && (yNum < (gGrid.numTiles - 1))) {
 		var x = xNum+1;
 		var y = yNum+1;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
-	else if (xNum == grid.numTiles && (yNum < (grid.numTiles - 1))) {
+	else if (xNum == gGrid.numTiles && (yNum < (gGrid.numTiles - 1))) {
 		var x = 0;
 		var y = yNum+1;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
-	else if ((xNum < (grid.numTiles - 1)) && yNum == grid.numTiles) {
+	else if ((xNum < (gGrid.numTiles - 1)) && yNum == gGrid.numTiles) {
 		var x = xNum+1;
 		var y = 0;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
-	else if (xNum == grid.numTiles && yNum == grid.numTiles) {
+	else if (xNum == gGrid.numTiles && yNum == gGrid.numTiles) {
 		var x = 0;
 		var y = 0;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
