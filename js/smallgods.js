@@ -155,11 +155,11 @@ Tile.prototype.update = function()
 	//Reset surrounding resources to zero
 	this.surEnergy = 0;
 	
-	//Add up all the curEnergy of the tiles surrounding this tile
-	//0 1 2
-	//3 * 4
-	//5 6 7
-	//TODO - Connect the edges of space to make a sphere.
+	/* Add up all the curEnergy of the tiles surrounding this tile
+	/ 0 1 2
+	/ 3 * 4
+	/ 5 6 7
+	*/
 	//0
 	if (xNum > 0 && yNum > 0) {
 		var x = xNum-1;
