@@ -167,18 +167,18 @@ Tile.prototype.update = function()
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	else if (xNum == 0 && yNum > 0) {
-		var x = gGrid.numTiles;
+		var x = gGrid.numTiles-1;
 		var y = yNum-1;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	else if (xNum > 0 && yNum == 0) {
 		var x = xNum-1;
-		var y = gGrid.numTiles;
+		var y = gGrid.numTiles-1;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	else if (xNum == 0 && yNum == 0) {
-		var x = gGrid.numTiles;
-		var y = gGrid.numTiles;
+		var x = gGrid.numTiles-1;
+		var y = gGrid.numTiles-1;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	//1
@@ -189,7 +189,7 @@ Tile.prototype.update = function()
 	}
 	else if (yNum == 0) {
 		var x = xNum;
-		var y = gGrid.numTiles;
+		var y = gGrid.numTiles-1;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	//2
@@ -200,17 +200,17 @@ Tile.prototype.update = function()
 	}
 	else if ((xNum < (gGrid.numTiles - 1)) && yNum == 0) {
 		var x = xNum+1;
-		var y = gGrid.numTiles;
+		var y = gGrid.numTiles-1;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
-	else if (xNum == gGrid.numTiles && yNum > 0) {
+	else if (xNum == (gGrid.numTiles - 1) && yNum > 0) {
 		var x = 0;
 		var y = yNum-1;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
-	else if (xNum == gGrid.numTiles && yNum == 0) {
+	else if (xNum == (gGrid.numTiles - 1) && yNum == 0) {
 		var x = 0;
-		var y = gGrid.numTiles;
+		var y = gGrid.numTiles-1;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	//3
@@ -220,7 +220,7 @@ Tile.prototype.update = function()
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	else if (xNum == 0) {
-		var x = gGrid.numTiles;
+		var x = gGrid.numTiles-1;
 		var y = yNum;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
@@ -230,7 +230,7 @@ Tile.prototype.update = function()
 		var y = yNum;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
-	else if (xNum == gGrid.numTiles) {
+	else if (xNum == (gGrid.numTiles - 1)) {
 		var x = 0;
 		var y = yNum;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
@@ -242,17 +242,17 @@ Tile.prototype.update = function()
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	else if (xNum == 0 && (yNum < (gGrid.numTiles - 1))) {
-		var x = gGrid.numTiles;
+		var x = gGrid.numTiles-1;
 		var y = yNum+1;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
-	else if (xNum > 0 && yNum == gGrid.numTiles) {
+	else if (xNum > 0 && yNum == (gGrid.numTiles - 1)) {
 		var x = xNum-1;
 		var y = 0;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
-	else if (xNum == 0 && yNum == gGrid.numTiles) {
-		var x = gGrid.numTiles;
+	else if (xNum == 0 && yNum == (gGrid.numTiles - 1)) {
+		var x = gGrid.numTiles-1;
 		var y = 0;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
@@ -262,7 +262,7 @@ Tile.prototype.update = function()
 		var y = yNum+1;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
-	if (yNum == gGrid.numTiles) {
+	if (yNum == (gGrid.numTiles - 1)) {
 		var x = xNum;
 		var y = 0;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
@@ -273,17 +273,17 @@ Tile.prototype.update = function()
 		var y = yNum+1;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
-	else if (xNum == gGrid.numTiles && (yNum < (gGrid.numTiles - 1))) {
+	else if (xNum == (gGrid.numTiles - 1) && (yNum < (gGrid.numTiles - 1))) {
 		var x = 0;
 		var y = yNum+1;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
-	else if ((xNum < (gGrid.numTiles - 1)) && yNum == gGrid.numTiles) {
+	else if ((xNum < (gGrid.numTiles - 1)) && yNum == (gGrid.numTiles - 1)) {
 		var x = xNum+1;
 		var y = 0;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
-	else if (xNum == gGrid.numTiles && yNum == gGrid.numTiles) {
+	else if (xNum == (gGrid.numTiles - 1) && yNum == (gGrid.numTiles - 1)) {
 		var x = 0;
 		var y = 0;
 		this.surEnergy += gGrid.tiles[x][y].curEnergy;
