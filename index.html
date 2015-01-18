@@ -10,7 +10,6 @@
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <script src="js/excanvas.compiled.js"></script>
 <![endif]-->
-<script type="text/javascript" src="js/functions.js"></script>
 <script type="text/javascript" src="js/smallgods.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -22,22 +21,18 @@
 	
 		$('#ctlPause').click(function(){
 			kFrameRate = 0;
-			
 			updateInterval();
 		});
 		$('#ctlSpdDecrease').click(function(){
-			if (kFrameRate > 10) { kFrameRate -= 10; }
-			
+			kFrameRate += 10;
 			updateInterval();
 		});
 		$('#ctlSpdMedium').click(function(){
 			kFrameRate = 50;
-			
 			updateInterval();
 		});
 		$('#ctlSpdIncrease').click(function(){
-			kFrameRate += 10;
-			
+			if (kFrameRate > 10) { kFrameRate -= 10; }
 			updateInterval();
 		});
 		
