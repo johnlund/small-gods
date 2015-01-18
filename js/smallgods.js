@@ -1,5 +1,8 @@
 /*
 / Small Gods
+/
+/ 
+/
 */
 
 //Debug
@@ -144,7 +147,7 @@ Tile.prototype.draw = function()
 
 Tile.prototype.update = function()
 {
-	//Energys to increase if surrounded by tiles with resources
+	//Energy to increase if surrounded by tiles with resources
 	
 	var xNum = this.xPos / kTileSize;
 	var yNum = this.yPos / kTileSize;
@@ -153,53 +156,137 @@ Tile.prototype.update = function()
 	this.surEnergy = 0;
 	
 	//Add up all the curEnergy of the tiles surrounding this tile
+	//0 1 2
+	//3 * 4
+	//5 6 7
+	//TODO - Connect the edges of space to make a sphere.
 	//0
 	if (xNum > 0 && yNum > 0) {
-		var a = xNum-1;
-		var b = yNum-1;
-		this.surEnergy += gGrid.tiles[a][b].curEnergy;
+		var x = xNum-1;
+		var y = yNum-1;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
+	}
+	else if (xNum == 0 && yNum == 0) {
+		var x = grid.numTiles;
+		var y = grid.numTiles;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
+	}
+	else if (xNum == 0 && yNum > 0) {
+		var x = grid.numTiles;
+		var y = yNum-1;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
+	}
+	else if (xNum > 0 && yNum == 0) {
+		var x = xNum-1;
+		var y = grid.numTiles;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	//1
 	if (yNum > 0) {
-		var a = xNum;
-		var b = yNum-1;
-		this.surEnergy += gGrid.tiles[a][b].curEnergy;
+		var x = xNum;
+		var y = yNum-1;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
+	}
+	else if (yNum == 0) {
+		var x = xNum;
+		var y = grid.numTiles;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	//2
-	if ((xNum < (kGridSize / kTileSize - 1)) && yNum > 0) {
-		var a = xNum+1;
-		var b = yNum-1;
-		this.surEnergy += gGrid.tiles[a][b].curEnergy;
+	if ((xNum < (grid.numTiles - 1)) && yNum > 0) {
+		var x = xNum+1;
+		var y = yNum-1;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
+	}
+	else if ((xNum < (grid.numTiles - 1)) && yNum == 0) {
+		var x = xNum+1;
+		var y = grid.numTiles;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
+	}
+	else if (xNum == grid.numTiles && yNum > 0) {
+		var x = 0;
+		var y = yNum-1;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
+	}
+	else if (xNum == grid.numTiles && yNum == 0) {
+		var x = 0;
+		var y = grid.numTiles;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	//3
 	if (xNum > 0) {
-		var a = xNum-1;
-		var b = yNum;
-		this.surEnergy += gGrid.tiles[a][b].curEnergy;
+		var x = xNum-1;
+		var y = yNum;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
+	}
+	else if (xNum == 0) {
+		var x = grid.numTiles;
+		var y = yNum;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	//4
-	if (xNum < (kGridSize / kTileSize - 1)) {
-		var a = xNum+1;
-		var b = yNum;
-		this.surEnergy += gGrid.tiles[a][b].curEnergy;
+	if (xNum < (grid.numTiles - 1)) {
+		var x = xNum+1;
+		var y = yNum;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
+	}
+	else if (xNum == grid.numTiles) {
+		var x = 0;
+		var y = yNum;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	//5
-	if (xNum > 0 && (yNum < (kGridSize / kTileSize - 1))) {
-		var a = xNum-1;
-		var b = yNum+1;
-		this.surEnergy += gGrid.tiles[a][b].curEnergy;
+	if (xNum > 0 && (yNum < (grid.numTiles - 1))) {
+		var x = xNum-1;
+		var y = yNum+1;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
+	}
+	else if (xNum == 0 && (yNum < (grid.numTiles - 1))) {
+		var x = grid.numTiles;
+		var y = yNum+1;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
+	}
+	else if (xNum > 0 && yNum == grid.numTiles) {
+		var x = xNum-1;
+		var y = 0;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
+	}
+	else if (xNum == 0 && yNum == grid.numTiles) {
+		var x = grid.numTiles;
+		var y = 0;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	//6
-	if (yNum < (kGridSize / kTileSize - 1)) {
-		var a = xNum;
-		var b = yNum+1;
-		this.surEnergy += gGrid.tiles[a][b].curEnergy;
+	if (yNum < (grid.numTiles - 1)) {
+		var x = xNum;
+		var y = yNum+1;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
+	}
+	if (yNum == grid.numTiles) {
+		var x = xNum;
+		var y = 0;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	//7
-	if ((xNum < (kGridSize / kTileSize - 1)) && (yNum < (kGridSize / kTileSize - 1))) {
-		var a = xNum+1;
-		var b = yNum+1;
-		this.surEnergy += gGrid.tiles[a][b].curEnergy;
+	if ((xNum < (grid.numTiles - 1)) && (yNum < (grid.numTiles - 1))) {
+		var x = xNum+1;
+		var y = yNum+1;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
+	}
+	else if (xNum == grid.numTiles && (yNum < (grid.numTiles - 1))) {
+		var x = 0;
+		var y = yNum+1;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
+	}
+	else if ((xNum < (grid.numTiles - 1)) && yNum == grid.numTiles) {
+		var x = xNum+1;
+		var y = 0;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
+	}
+	else if (xNum == grid.numTiles && yNum == grid.numTiles) {
+		var x = 0;
+		var y = 0;
+		this.surEnergy += gGrid.tiles[x][y].curEnergy;
 	}
 	//Divide by 10 and add to current energy
 	//World became either a desert or an oasis, there needs to be some kind of balancing mechanism. I limit the top and bottom of the current energy of a tile to the Energy Range.
