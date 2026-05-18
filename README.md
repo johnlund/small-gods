@@ -1,3 +1,3 @@
 small-gods
 
-https://johnlund.github.io/small-gods/
+https://johnclund.github.io/small-gods/
